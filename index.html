@@ -143,29 +143,24 @@
             <img src="https://cdn.vidimi.vn/theme/V01-build/img/icons/google-play-download.png" alt="Google Play">
         </a>
     </div>
-</div>
-
-<script>
-    window.onload = function() {
+</div><script>
+    window.onload = function () {
         const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+        const isAndroid = /android/i.test(userAgent);
+
         const config = {
-            deepLink: "vidimi://vidimi.vn", 
+            deepLink: "vidimi://vidimi.vn",
             iosStore: "https://apps.apple.com/app/id6743361451",
             androidStore: "https://play.google.com/store/apps/details?id=vn.vidimi.app.client"
         };
 
-        const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
-        const isAndroid = /android/i.test(userAgent);
-
-        if (isIOS || isAndroid) {
-            // Thử mở app
-            window.location.href = config.deepLink;
-
-            setTimeout(function() {
-                if (!document.hidden) {
-                    window.location.href = isIOS ? config.iosStore : config.androidStore;
-                }
-            }, 1800);
+        if (isIOS) {
+            window.location.replace(config.deepLink);
+            setTimeout(() => { window.location.replace(config.iosStore); }, 500);
+        } else if (isAndroid) {
+            window.location.replace(config.deepLink);
+            setTimeout(() => { window.location.replace(config.androidStore); }, 500);
         }
     };
 </script>

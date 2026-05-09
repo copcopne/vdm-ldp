@@ -150,20 +150,31 @@
         const isAndroid = /android/i.test(userAgent);
 
         const config = {
-            deepLink: "vidimi://vidimi.vn",
+            scheme: "vidimi://vidimi.vn",
+            package: "vn.vidimi.app.client",
             iosStore: "https://apps.apple.com/app/id6743361451",
             androidStore: "https://play.google.com/store/apps/details?id=vn.vidimi.app.client"
         };
 
-        if (isIOS) {
-            window.location.replace(config.deepLink);
-            setTimeout(() => { window.location.replace(config.iosStore); }, 500);
-        } else if (isAndroid) {
-            window.location.replace(config.deepLink);
-            setTimeout(() => { window.location.replace(config.androidStore); }, 500);
+        if (isAndroid) {
+            const intentUrl = `intent://vidimi.vn/#Intent;scheme=vidimi;package=${config.package};S.browser_fallback_url=${encodeURIComponent(config.androidStore)};end`;
+
+            window.location.href = intentUrl;
+
+        } else if (isIOS) {
+            // iOS vẫn dùng cơ chế Scheme + Timeout
+            window.location.href = config.scheme;
+
+            const start = Date.now();
+            setTimeout(() => {
+                if (Date.now() - start < 3000) {
+                    window.location.href = config.iosStore;
+                }
+            }, 2500);
         }
     };
 </script>
 
 </body>
+
 </html>

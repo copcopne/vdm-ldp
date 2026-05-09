@@ -173,7 +173,7 @@
             </a>
         </div>
     </div>
-    <script>
+    <!-- <script>
         window.onload = function () {
             const userAgent = navigator.userAgent.toLowerCase();
             const isAndroid = /android/i.test(userAgent);
@@ -225,7 +225,26 @@
                 checkRedirection(config.iosStore);
             }
         };
-    </script>
+    </script> -->
+
+    <script>
+    window.onload = function () {
+        const userAgent = navigator.userAgent.toLowerCase();
+        const isAndroid = /android/i.test(userAgent);
+        const isIOS = /ipad|iphone|ipod/.test(userAgent) && !window.MSStream;
+
+        const config = {
+            androidStore: "https://play.google.com/store/apps/details?id=vn.vidimi.app.client",
+            iosStore: "https://apps.apple.com/app/id6743361451"
+        };
+
+        if (isAndroid) {
+            window.location.href = config.androidStore;
+        } else if (isIOS) {
+            window.location.href = config.iosStore;
+        }
+    };
+</script>
 
 </body>
 

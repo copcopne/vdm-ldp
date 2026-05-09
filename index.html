@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -12,7 +13,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root { --vidimi-purple: #b600c4; }
+        :root {
+            --vidimi-purple: #b600c4;
+        }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -40,11 +43,11 @@
             transition: transform 0.3s ease;
         }
 
-        .logo { 
-            width: 70px; 
-            height: auto; 
+        .logo {
+            width: 70px;
+            height: auto;
             margin-bottom: 24px;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
         }
 
         .loader {
@@ -57,38 +60,46 @@
             margin: 0 auto 24px;
         }
 
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
 
-        h1 { 
-            font-size: 1.35rem; 
-            font-weight: 700; 
-            margin-bottom: 12px; 
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        h1 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 12px;
             color: var(--vidimi-purple);
             letter-spacing: -0.5px;
         }
 
-        p { 
-            font-size: 0.95rem; 
-            color: #6c757d; 
-            margin-bottom: 32px; 
+        p {
+            font-size: 0.95rem;
+            color: #6c757d;
+            margin-bottom: 32px;
             line-height: 1.6;
             padding: 0 10px;
         }
 
-        .download-buttons { 
-            display: flex; 
-            justify-content: center; 
-            gap: 12px; 
+        .download-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
             flex-direction: row;
         }
 
-        .btn-download { 
+        .btn-download {
             flex: 1;
             min-width: 140px;
             transition: all 0.2s ease;
         }
 
-        .btn-download img { 
+        .btn-download img {
             width: 100%;
             height: auto;
             max-height: 48px;
@@ -102,8 +113,10 @@
                 border-radius: 24px;
             }
 
-            h1 { font-size: 1.25rem; }
-            
+            h1 {
+                font-size: 1.25rem;
+            }
+
             .download-buttons {
                 flex-direction: column;
                 align-items: center;
@@ -113,67 +126,106 @@
                 width: 100%;
                 max-width: 200px;
             }
-            
-            .logo { width: 60px; }
+
+            .logo {
+                width: 60px;
+            }
         }
 
         @media (max-height: 450px) {
-            .container { padding: 1.5rem; }
-            .logo { margin-bottom: 10px; }
-            p { margin-bottom: 15px; }
+            .container {
+                padding: 1.5rem;
+            }
+
+            .logo {
+                margin-bottom: 10px;
+            }
+
+            p {
+                margin-bottom: 15px;
+            }
         }
 
-        .btn-download:hover { transform: translateY(-3px) scale(1.02); }
-        .btn-download:active { transform: scale(0.96); }
+        .btn-download:hover {
+            transform: translateY(-3px) scale(1.02);
+        }
+
+        .btn-download:active {
+            transform: scale(0.96);
+        }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <img src="https://cdn.vidimi.vn/theme/V01/img/logo-square.png" alt="Vidimi Logo" class="logo">
-    <div class="loader"></div>
-    <h1>Đang mở Vidimi...</h1>
-    <p>Hệ thống đang kiểm tra và đưa bạn đến trải nghiệm tốt nhất.</p>
-    
-    <div class="download-buttons">
-        <a href="https://apps.apple.com/app/id6743361451" class="btn-download">
-            <img src="https://cdn.vidimi.vn/theme/V01-build/img/icons/apple-store-download.png" alt="App Store">
-        </a>
-        <a href="https://play.google.com/store/apps/details?id=vn.vidimi.app.client" class="btn-download">
-            <img src="https://cdn.vidimi.vn/theme/V01-build/img/icons/google-play-download.png" alt="Google Play">
-        </a>
+    <div class="container">
+        <img src="https://cdn.vidimi.vn/theme/V01/img/logo-square.png" alt="Vidimi Logo" class="logo">
+        <div class="loader"></div>
+        <h1>Đang mở Vidimi...</h1>
+        <p>Hệ thống đang kiểm tra và đưa bạn đến trải nghiệm tốt nhất.</p>
+
+        <div class="download-buttons">
+            <a href="https://apps.apple.com/app/id6743361451" class="btn-download">
+                <img src="https://cdn.vidimi.vn/theme/V01-build/img/icons/apple-store-download.png" alt="App Store">
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=vn.vidimi.app.client" class="btn-download">
+                <img src="https://cdn.vidimi.vn/theme/V01-build/img/icons/google-play-download.png" alt="Google Play">
+            </a>
+        </div>
     </div>
-</div><script>
-    window.onload = function () {
-        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-        const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
-        const isAndroid = /android/i.test(userAgent);
+    <script>
+        window.onload = function () {
+            const userAgent = navigator.userAgent.toLowerCase();
+            const isAndroid = /android/i.test(userAgent);
+            const isIOS = /ipad|iphone|ipod/.test(userAgent) && !window.MSStream;
 
-        const config = {
-            scheme: "vidimi://vidimi.vn",
-            package: "vn.vidimi.app.client",
-            iosStore: "https://apps.apple.com/app/id6743361451",
-            androidStore: "https://play.google.com/store/apps/details?id=vn.vidimi.app.client"
-        };
+            const config = {
+                scheme: "vidimi://vidimi.vn",
+                package: "vn.vidimi.app.client",
+                androidStore: "https://play.google.com/store/apps/details?id=vn.vidimi.app.client",
+                iosStore: "https://apps.apple.com/app/id6743361451"
+            };
 
-        if (isAndroid) {
-            const intentUrl = `intent://vidimi.vn/#Intent;scheme=vidimi;package=${config.package};S.browser_fallback_url=${encodeURIComponent(config.androidStore)};end`;
+            // Hàm phụ để kiểm tra xem trang web có còn focus không
+            // Nếu vẫn còn focus tức là việc chuyển hướng app thất bại
+            const checkRedirection = (storeUrl) => {
+                const start = Date.now();
+                setTimeout(() => {
+                    if (Date.now() - start < 3000) {
+                        window.location.href = storeUrl;
+                    }
+                }, 2500);
+            };
 
-            window.location.href = intentUrl;
+            if (isAndroid) {
+                // LỚP 1: Dùng Intent cho Chrome trên Android (Chuẩn nhất cho đa số máy)
+                // Intent giúp tự mở app nếu đã cài, hoặc nhảy Store nếu chưa cài
+                const intentUrl = `intent://vidimi.vn/#Intent;scheme=vidimi;package=${config.package};S.browser_fallback_url=${encodeURIComponent(config.androidStore)};end`;
 
-        } else if (isIOS) {
-            // iOS vẫn dùng cơ chế Scheme + Timeout
-            window.location.href = config.scheme;
+                // LỚP 2: Đặc trị các trình duyệt trong App (Facebook, Zalo, Scanner, v.v.)
+                const isInsideApp = /fb_iab|fbav|instagram|messenger|micromessenger|xiaomi|line/i.test(userAgent);
 
-            const start = Date.now();
-            setTimeout(() => {
-                if (Date.now() - start < 3000) {
-                    window.location.href = config.iosStore;
+                if (isInsideApp) {
+                    // Nếu ở trong app, ưu tiên link Store trực tiếp vì Intent thường bị chặn
+                    window.location.href = config.androidStore;
+                } else {
+                    // Ở trình duyệt ngoài (Chrome, Samsung Browser) thì dùng Intent
+                    window.location.href = intentUrl;
                 }
-            }, 2500);
-        }
-    };
-</script>
+
+                // LỚP 3: Cú chốt (Dự phòng cuối cùng)
+                // Nếu sau 3s mà người dùng vẫn ở lại trang web này (do Intent lỗi/bị chặn)
+                // thì ép nhảy sang link Web của Play Store.
+                checkRedirection(config.androidStore);
+
+            } else if (isIOS) {
+                // iOS: Thử mở scheme trước
+                window.location.href = config.scheme;
+                // Nếu không mở được app (chưa cài) thì nhảy Store
+                checkRedirection(config.iosStore);
+            }
+        };
+    </script>
 
 </body>
 
